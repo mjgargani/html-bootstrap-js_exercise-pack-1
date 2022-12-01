@@ -1,6 +1,9 @@
 let predictions = [];
 
 const elements = {
+  form: {
+    addPred: document.getElementById("form-add-pred")
+  },
   input: {
     selecao1: document.getElementById("input-selecao-1"),
     selecao2: document.getElementById("input-selecao-2"),
@@ -8,10 +11,10 @@ const elements = {
     gols2: document.getElementById("input-gols-2")
   },
   btn: {
-    addPred: document.getElementById("btn-add-prev")
+    addPred: document.getElementById("btn-add-pred")
   },
   tbody: {
-    listaPred: document.getElementById("lista-previsoes")
+    listaPred: document.getElementById("pred-list")
   }
 }
 
@@ -74,7 +77,8 @@ function tableUpdate(data) {
   }
 }
 
-function addPred() {
+function addPred(event) {
+  event.preventDefault();
   const currentPredList = predictions;
   const newPredListItem = {
     numPart: currentPredList.length + 1,
@@ -97,4 +101,4 @@ function rmPred({ target }) {
   tableUpdate(predictions);
 }
 
-elements.btn.addPred.addEventListener("click", addPred);
+elements.form.addPred.addEventListener("submit", addPred);
