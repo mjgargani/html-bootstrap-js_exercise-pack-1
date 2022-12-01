@@ -9,47 +9,49 @@
     <div class="container text-center">
       <div class="row">
         <div class="col">
-          Bolão da Copa do Mundo
+          <h3>Bolão da Copa do Mundo</h1>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          Preencha o formulário de inserção e clique em "Adicionar" para fazer sua previsão
+          <h5>Preencha o formulário de inserção e clique em "Adicionar" para fazer sua previsão</h3>
         </div>
       </div>
 
-      <form id="form-add-pred">
-        <div class="row">
-          <div class="col">
-            <div class="form-group mb-2">
-              <label for="selecao1" class="sr-only">Seleção 1</label>
-              <input required id="input-selecao-1" type="text" class="form-control" id="selecao1">
+      <form id="form-add-pred" class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group mb-2">
+                <label for="selecao1" class="sr-only">Seleção 1</label>
+                <input required id="input-selecao-1" type="text" class="form-control" id="selecao1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group mb-2">
+                <label for="selecao2" class="sr-only">Seleção 2</label>
+                <input required id="input-selecao-2" type="text" class="form-control" id="selecao2">
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-group mb-2">
-              <label for="selecao2" class="sr-only">Seleção 2</label>
-              <input required id="input-selecao-2" type="text" class="form-control" id="selecao2">
+          <div class="row">
+            <div class="col">
+              <div class="form-group mb-2">
+                <label for="gols1" class="sr-only">Qtde de gols da Seleção 1</label>
+                <input required id="input-gols-1" type="text" class="form-control" id="gols1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group mb-2">
+                <label for="gols2" class="sr-only">Qtde de gols da Seleção 2</label>
+                <input required id="input-gols-2" type="text" class="form-control" id="gols2">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group mb-2">
-              <label for="gols1" class="sr-only">Qtde de gols da Seleção 1</label>
-              <input required id="input-gols-1" type="text" class="form-control" id="gols1">
+          <div class="row">
+            <div class="col">
+              <button id="btn-add-pred" type="submit" class="btn btn-primary mb-2">Adicionar previsão</button>
             </div>
-          </div>
-          <div class="col">
-            <div class="form-group mb-2">
-              <label for="gols2" class="sr-only">Qtde de gols da Seleção 2</label>
-              <input required id="input-gols-2" type="text" class="form-control" id="gols2">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button id="btn-add-pred" type="submit" class="btn btn-primary mb-2">Adicionar previsão</button>
           </div>
         </div>
       </div>

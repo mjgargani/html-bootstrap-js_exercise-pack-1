@@ -1,5 +1,15 @@
+/**
+ * Gabarito do projeto
+ * O objetivo do projeto é medir se o estudante é capaz de trabalhar a
+ * abstração de listas (arrays) associando-as a componentes HTML5 
+ * (Algo próximo aos States do React)
+ * Aqui, o objetivo é a criação de uma página de um bolão de previsões para resultados 
+ * da Copa do Mundo
+ */
+
 let predictions = [];
 
+// Trabalhando com objetos, abstraindo os principais componentes da página
 const elements = {
   form: {
     addPred: document.getElementById("form-add-pred")
@@ -18,6 +28,7 @@ const elements = {
   }
 }
 
+// Boas práticas para criação de elementos dentro de um compontente
 function createTableRowElements(index) {
   const tr = document.createElement("tr");
   const numPart = document.createElement('th');
@@ -47,6 +58,7 @@ function createTableRowElements(index) {
   ]
 }
 
+// Associação da lista (array) com os componentes html relacionados
 function tableUpdate(data) {
   elements.tbody.listaPred.innerHTML = "";
 
@@ -77,6 +89,7 @@ function tableUpdate(data) {
   }
 }
 
+// Manipulação do array (Adição de itens)
 function addPred(event) {
   event.preventDefault();
   const currentPredList = predictions;
@@ -91,14 +104,15 @@ function addPred(event) {
   tableUpdate(predictions);
 }
 
+// Manipulação do array (Remoção de itens com o uso de HOFs)
 function rmPred({ target }) {
   const index = Number(target.dataset.id);
   const currentPredList = predictions;
   const filteredPredList = currentPredList.filter(el => el.numPart !== index);
   const newPredList = filteredPredList.map((el, i)=> ({...el, numPart: i+1}))
-  console.log(filteredPredList, newPredList)
   predictions = newPredList;
   tableUpdate(predictions);
 }
 
+// Utilização de eventos
 elements.form.addPred.addEventListener("submit", addPred);
