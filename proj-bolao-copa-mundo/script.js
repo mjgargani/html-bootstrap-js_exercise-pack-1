@@ -2,11 +2,16 @@
  * Gabarito do projeto
  * O objetivo do projeto é medir se o estudante é capaz de trabalhar a
  * abstração de listas (arrays) associando-as a componentes HTML5 
- * (Algo próximo aos States do React)
+ * (Algo semelhante ao que acontece com o uso de "states" no ReactJS)
  * Aqui, o objetivo é a criação de uma página de um bolão de previsões para resultados 
  * da Copa do Mundo
  */
 
+// A matriz 'predictions' é a fonte da verdade para renderização da tabela.
+// Isso signifca que: Para toda modificação na matriz, a tabela é "refeita"
+// refletindo esses dados (função 'tableUpdate').
+// Esse tipo de abstração é importante, pois o array é mais simples de
+// trabalhar (com HOFs) e pode ser trazido através de uma API, por exemplo.
 let predictions = [];
 
 // Trabalhando com objetos, abstraindo os principais componentes da página
@@ -39,10 +44,11 @@ function createTableRowElements(index) {
   const rmBtn = document.createElement('button');
 
   rmBtn.classList.add("btn"); // bootstrap
-  rmBtn.classList.add("btn-secondary"); // bootstrap
+  rmBtn.classList.add("btn-danger"); // bootstrap
   rmBtn.dataset.id = index;
+  rmBtn.textContent = "X";
+  
   rmBtn.addEventListener("click", rmPred);
-  rmBtn.textContent = "Remover Item";
 
   numPart.setAttribute("scope", "row"); // bootstrap
   numPart.textContent = index;
@@ -60,6 +66,9 @@ function createTableRowElements(index) {
 
 // Associação da lista (array) com os componentes html relacionados
 function tableUpdate(data) {
+  // A reconstrução da tabela, independe da operação que foi 
+  // realizada na matriz
+
   elements.tbody.listaPred.innerHTML = "";
 
   for (const item of data) {
@@ -101,6 +110,8 @@ function addPred(event) {
     gols2: elements.input.gols2.value
   };
   predictions.push(newPredListItem);
+
+  // Reconstruir a tabela, após a mudança na matriz
   tableUpdate(predictions);
 }
 
@@ -111,6 +122,8 @@ function rmPred({ target }) {
   const filteredPredList = currentPredList.filter(el => el.numPart !== index);
   const newPredList = filteredPredList.map((el, i)=> ({...el, numPart: i+1}))
   predictions = newPredList;
+
+  // Reconstruir a tabela, após a mudança na matriz
   tableUpdate(predictions);
 }
 
