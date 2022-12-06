@@ -1,7 +1,7 @@
 /**
  * Gabarito do projeto
  * O objetivo do projeto é medir se o estudante é capaz de trabalhar a
- * abstração de listas (arrays) associando-as a componentes HTML5 
+ * abstração de listas (arrays) associando-as a componentes HTML 
  * (Algo semelhante ao que acontece com o uso de "states" no ReactJS)
  * Aqui, o objetivo é a criação de uma página de um bolão de previsões para resultados 
  * da Copa do Mundo
@@ -43,8 +43,7 @@ function createTableRowElements(index) {
   const tdGols2 = document.createElement('td');
   const rmBtn = document.createElement('button');
 
-  rmBtn.classList.add("btn"); // bootstrap
-  rmBtn.classList.add("btn-danger"); // bootstrap
+  rmBtn.classList.add("btn", "btn-danger"); // bootstrap
   rmBtn.dataset.id = index;
   rmBtn.textContent = "X";
   
@@ -66,7 +65,7 @@ function createTableRowElements(index) {
 
 // Associação da lista (array) com os componentes html relacionados
 function tableUpdate(data) {
-  // A reconstrução da tabela, independe da operação que foi 
+  // A reconstrução da tabela independe da operação que foi 
   // realizada na matriz
 
   elements.tbody.listaPred.innerHTML = "";
@@ -100,7 +99,10 @@ function tableUpdate(data) {
 
 // Manipulação do array (Adição de itens)
 function addPred(event) {
+  // cancela o evento padrão que no caso,
+  // é a submissão do formulário
   event.preventDefault();
+
   const currentPredList = predictions;
   const newPredListItem = {
     numPart: currentPredList.length + 1,
