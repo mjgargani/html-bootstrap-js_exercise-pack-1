@@ -2,7 +2,7 @@
 
 Considerando o exercício 2:
 
-- Crie uma função que possa adicionar um novo produto à lista de produtos;
+- Crie uma função que possa adicionar um novo produto à lista de produtos, a função deve receber o nome, descrição e preço;
 
 # Gabarito
 
