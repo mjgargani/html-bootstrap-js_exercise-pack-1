@@ -28,4 +28,4 @@ let products = [
 ];
 ```
 
-> Para gerar um valor único nesse caso *(sem o apoio de bibliotecas externas)* para os dois item, foi necessário adicionar uma unidade, junto à definição do `id` no segundo item (`Date.now()+1`). Isso garante que o segundo valor será diferente do primeiro.
+> Para gerar um valor único nesse caso *(sem o apoio de bibliotecas externas)* para os dois itens, foi necessário adicionar uma unidade, junto à definição do `id` no segundo item (`Date.now()+1`). Isso garante que o segundo valor será diferente do primeiro.
