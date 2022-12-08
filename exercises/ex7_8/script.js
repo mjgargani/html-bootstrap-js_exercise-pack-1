@@ -1,6 +1,8 @@
 let modalItemDetail;
+let filteredMealList;
 
 const elements = {
+  mealCatFilter: document.getElementById("meal-list-cat-filter"),
   modal: {
     closeBtn: document.getElementById("detail-modal-close"),
     details: {
@@ -30,10 +32,12 @@ function setModalItemDetail({ target }){
   renderModalDetails();
 }
 
-function loadMealsData() {
+function loadMealsData(wrapper) {
+  const mealList = wrapper || meals;
   const favTableBody = document.getElementById("fav-meal-list");
+  favTableBody.replaceChildren();
 
-  for (const meal of meals) {
+  for (const meal of mealList) {
     const tr = document.createElement("tr");
     const tdId = document.createElement("td");
     const tdName = document.createElement("td");
@@ -65,5 +69,16 @@ function closeDetailModal() {
   document.getElementById("detail-modal").classList.add("hide");
 }
 
-document.addEventListener("DOMContentLoaded", loadMealsData);
+function filterMealList({ target }){
+  const filter = target.value;
+  if(filter !== "none") {
+    filteredMealList = meals.filter(el => el.category === filter);
+    loadMealsData(filteredMealList);
+  } else {
+    loadMealsData();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => loadMealsData());
 elements.modal.closeBtn.addEventListener("click", closeDetailModal);
+elements.mealCatFilter.addEventListener("change", filterMealList);
