@@ -3,7 +3,10 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <p><h1>Lista de receitas favoritas</h1></p>
+    <p>
+      <h1>Lista de receitas favoritas</h1>
+    </p>
+
     <table>
       <thead>
         <tr>
@@ -15,6 +18,23 @@
       </thead>
       <tbody id="fav-meal-list"></tbody>
     </table>
+
+    <div id="detail-modal" class="modal-container hide">
+      <div class="modal-content">
+        <button id="detail-modal-close" class="modal-close"><b>Fechar detalhamento</b></button>
+        <p>
+          <h2>Detalhes do item: <span id="detail-id"></span></h2>
+        </p>
+        <p>
+          <h3 id="detail-name"></h3>
+          <span id="detail-category"></span>
+        </p>
+        <img id="detail-thumb" src="" width="25%"/>
+        <p id="detail-ingredients"></p>
+        <p id="detail-instructions"></p>
+      </div>
+    </div>
+
     <script src="./meals.js"></script>
     <script src="./script.js"></script>
   </body>
