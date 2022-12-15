@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Javascript</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="start-quiz">
+        <button id="btn-start-quiz">Iniciar desafio!</button>
+      </div>
+
+      <div id="quiz" class="hide">
+        <p>Tempo: <span id="label-quiz-timer"></span></p>
+        <p>Questão número <span id="label-question-index"></span>:</p>
+        <p id="label-question-description">
+          <!-- Título da questão será inserido via JS aqui -->
+        </p>
+        <form id="form-question">
+          <div id="form-question-alternatives">
+            <!-- Alternativas serão inseridas via JS aqui -->
+          </div>
+          <input type="submit" value="Responder questão">
+        </form>
+      </div>
+
+      <div id="quiz-results" class="hide">
+        <p>Resultados:</p>
+        <p>Corretos: <span id="label-quiz-corrects"></span></p>
+        <p>Incorretos: <span id="label-quiz-incorrects"></span></p>
+        <button id="btn-restart-quiz">Reiniciar</button>
+      </div>
+    </div>
+
+    <script src="./questions.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
