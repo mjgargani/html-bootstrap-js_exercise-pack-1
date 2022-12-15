@@ -13,18 +13,23 @@
       </div>
 
       <div id="quiz" class="hide">
-        <p>Tempo: <span id="label-quiz-timer"></span></p>
-        <p>Questão número <span id="label-question-index"></span>:</p>
-        <p id="label-question-description">
-          <!-- Título da questão será inserido via JS aqui -->
-        </p>
+        <p align="center">Tempo: <b><span id="label-quiz-timer"></span></b></p>
+        <p align="center">Questão número <span id="label-question-index"></span>:</p>
+        <b>
+          <p id="label-question-description">
+            <!-- Título da questão será inserido via JS aqui -->
+          </p>
+        </b>
         <form id="form-question">
           <div id="form-question-alternatives">
             <!-- Alternativas serão inseridas via JS aqui -->
           </div>
           <br />
-          <input type="submit" value="Responder questão">
+          <p align="center">
+            <input type="submit" value="Responder questão">
+          </p>
         </form>
+        <br />
       </div>
 
       <div id="quiz-results" class="hide">
@@ -32,6 +37,7 @@
         <p>Corretos: <span id="label-quiz-corrects"></span></p>
         <p>Incorretos: <span id="label-quiz-incorrects"></span></p>
         <button id="btn-restart-quiz">Reiniciar</button>
+        <br />
       </div>
     </div>
 

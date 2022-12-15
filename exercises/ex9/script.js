@@ -38,7 +38,6 @@ const elements = {
 
 function renderQuestion() {
   const current = questions[currentQuestion];
-  console.log(current);
 
   elements.label.question.index.textContent = currentQuestion + 1;
   elements.label.question.description.textContent = current.question;
