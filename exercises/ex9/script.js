@@ -5,6 +5,7 @@ let currentQuestion = 0;
 let currentAnswer;
 
 const results = {
+  points: 0,
   correct: 0,
   incorrect: 0
 }
@@ -22,6 +23,7 @@ const elements = {
       description: document.getElementById("label-question-description")
     },
     results: {
+      points: document.getElementById("label-quiz-points"),
       correct: document.getElementById("label-quiz-corrects"),
       incorrect: document.getElementById("label-quiz-incorrects")
     }
@@ -76,6 +78,7 @@ function renderResults() {
   elements.div.quiz.classList.add("hide");
   elements.div.quizResults.classList.remove("hide");
 
+  elements.label.results.points.textContent = results.points;
   elements.label.results.correct.textContent = results.correct;
   elements.label.results.incorrect.textContent = results.incorrect;
 }
@@ -85,6 +88,7 @@ function validateAnswer(event) {
   const selected = document.querySelector('input[name="alternative-item"]:checked').value;
 
   if(Number(selected) === currentAnswer){
+    results.points += 2;
     results.correct += 1;
   } else {
     results.incorrect += 1;
@@ -132,6 +136,7 @@ function showHome() {
   elements.div.quizResults.classList.add("hide");
   elements.div.startQuiz.classList.remove("hide");
 
+  results.points = 0;
   results.correct = 0;
   results.incorrect = 0;
   currentQuestion = 0;
