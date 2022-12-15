@@ -70,10 +70,10 @@ function renderTimer(ms) {
     .textContent = `${min}:${sec < 10 ? `0${sec}` : sec}`;
 }
 
-function showResults() {
+function renderResults() {
   quizState = 2;
-
   clearInterval(timer);
+
   elements.div.quiz.classList.add("hide");
   elements.div.quizResults.classList.remove("hide");
 
@@ -147,7 +147,7 @@ function changeQuizState(stateNum) {
       quizState === 0 && showQuiz();
       break;
     case 2: 
-      quizState === 1 && showResults();
+      quizState === 1 && renderResults();
       break;
   }
 }
